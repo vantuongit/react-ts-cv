@@ -1,15 +1,26 @@
 import Typewriter from "typewriter-effect";
-import SocialMedia from "../social.media";
+import SocialMedia from "components/sections/social.media";
 import { useTranslation } from "react-i18next";
 import './hero.scss';
-import ResizeButton from "../resize.button";
-import { APP_DATA } from '../../../helpers/data';
+import ResizeButton from "components/sections/resize.button";
+import { APP_DATA } from 'helpers/data';
 import { MdFileDownload } from "react-icons/md";
 import { AiFillFire } from "react-icons/ai";
 
-const HeroLeft = () => {
+interface IProps {
+    scrollToExp: () => void;
+}
+const HeroLeft = (props: IProps) => {
 
     const { t } = useTranslation();
+
+    const openInNewTab = (url: string) => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }
+    const handleDownloadCV = () => {
+        openInNewTab("urlCV");
+    }
 
     return (
         <div className='hero-left'>
@@ -28,7 +39,6 @@ const HeroLeft = () => {
                     strings: [
                         "Software Developer",
                         "Freelancer",
-                        "MERN Stack Developer",
                         "Open Source Contributor",
                     ],
                     autoStart: true,
@@ -41,14 +51,15 @@ const HeroLeft = () => {
                 className="mt-md-6 mt-3 mb-md-5 mb-2"
             >
                 <SocialMedia
-                    youtube={APP_DATA.YOUTUBE_URL}
+                    // youtube={APP_DATA.YOUTUBE_URL}
                     facebook={APP_DATA.FACEBOOK_URL}
                     tiktok={APP_DATA.TIKTOK_URL}
-                    udemy={APP_DATA.UDEMY_URL}
+                    linkedin={APP_DATA.LINKEDIN_URL}
                 />
             </div>
             <div className="d-md-flex d-none gap-4">
                 <ResizeButton
+                    onClick={props.scrollToExp}
                     btnText={t("heroSection.exp")}
                     btnIcons={<AiFillFire style={{ color: "orange" }} />}
                     btnStyle={{
@@ -60,6 +71,7 @@ const HeroLeft = () => {
                 <ResizeButton
                     btnText={t("heroSection.cv")}
                     btnIcons={<MdFileDownload />}
+                    onClick={handleDownloadCV}
                 />
 
             </div>
