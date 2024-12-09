@@ -29,21 +29,13 @@ const HeroRight = () => {
                         <span>{`['`}</span>
                         <span >React</span>
                         <span>{"', '"}</span>
-                        <span >Redux</span>
-                        <span>{"', '"}</span>
                         <span >NextJS</span>
                         <span>{"', '"}</span>
                         <span >Java Spring</span>
                         <span>{"', '"}</span>
-                        <span >NestJS</span>
-                        <span>{"', '"}</span>
-                        <span >NoSQL</span>
-                        <span>{"', '"}</span>
                         <span >SQL</span>
                         <span>{"', '"}</span>
-                        <span >Docker</span>
-                        <span>{"', '"}</span>
-                        <span >K8S</span>
+                        <span >Javascript</span>
                         <span>{"'],"}</span>
                     </div>
                     <div>
@@ -90,8 +82,8 @@ const HeroRight = () => {
                     <div><span className="ms-4">{`};`}</span></div>
                     <div><span>{`};`}</span></div>
                 </code>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
